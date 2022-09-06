@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-body>
+    <CurrencyForm class="form" />
+  </v-body>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import VBody from "@/components/layout/Body/vBody";
+import CurrencyForm from "@/components/common/form/CurrencyForm/CurrencyForm";
 
 export default {
   name: "HomeView",
-  components: {
-    HelloWorld,
-  },
+  components: { VBody, CurrencyForm },
 };
 </script>
+
+<style>
+.form {
+}
+</style>

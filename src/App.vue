@@ -1,30 +1,50 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
   <router-view />
 </template>
 
+<script>
+export default {
+  created() {
+    const appHeight = () => {
+      const doc = document.documentElement;
+      doc.style.setProperty("--app-height", `${window.innerHeight}px`);
+    };
+    window.addEventListener("resize", appHeight);
+    appHeight();
+  },
+};
+</script>
+
+<style lang="scss" src="./assets/css/normalize.scss" />
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+:root {
+  --font: "Play";
+  --app-height: 100vh;
+  --bg-color: #000000de;
+  --bg-color-2: #1b98e0;
 }
 
-nav {
-  padding: 30px;
+html {
+  min-height: 100%;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+body {
+  font-family: var(--font);
+  color: #fff;
+  background: var(--bg-color);
+  font-size: 16px;
+  min-width: 1200px;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#app {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: var(--app-height);
 }
 </style>
